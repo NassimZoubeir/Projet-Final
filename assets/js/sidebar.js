@@ -15,7 +15,7 @@ export function sidebar() {
     });
 
     const sidebarInner = document.createElement("div");
-    sidebarInner.classList.add("sidebar-inner");
+    sidebarInner.classList.add(".sidebar-inner");
 
     sidebarInner.innerHTML = `
     <div class="sidebar-list">
