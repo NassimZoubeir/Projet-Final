@@ -63,6 +63,7 @@ api_key=${api_key}&append_to_response=casts,videos,images,releases`, function(mo
         videos: { results: videos }
     } = movie;
 
+    console.log(videos);
     document.title = `${title} - Nassflix`;
 
     const movieDetail = document.createElement("div");
@@ -131,15 +132,14 @@ api_key=${api_key}&append_to_response=casts,videos,images,releases`, function(mo
 
     </div>
     `;
-
     for (const { key, name } of filterVideos(videos)) {
 
         const videoCard = document.createElement("div");
         videoCard.classList.add("video-card");
 
         videoCard.innerHTML = `
-        <iframe width="500" height="294" src="https://www.youtube.com/embed/${key}?&theme=dark&color=white&rel=0" 
-        frameborder ="0" allowfullscreen="1" title="${name}" class="img-cover" loading="lazy"></iframe>
+        <iframe width="500" height="294" src="https://www.youtube.com/embed/${key}?theme=dark&color=white&rel=0" 
+        frameborder="0" allowfullscreen="1" title="${name}" class="img-cover"></iframe>
     `;
     
 
@@ -148,4 +148,31 @@ api_key=${api_key}&append_to_response=casts,videos,images,releases`, function(mo
 
     pageContent.appendChild(movieDetail);
 
-})
+    fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${api_key}&page=1`
+    , addSuggestedMovies);
+});
+
+const addSuggestedMovies = function({ results: movieList }, title) {
+
+    const movieListElem = document.createElement("section");
+    movieListElem.classList.add("movie-list");
+    movieListElem.ariaLabel = "You May Also Like";
+
+    movieListElem.innerHTML = `
+    <div class="title-wrapper">
+    <h3 class="title-large">You May Also Like</h3>
+    </div>
+
+    <div class="slider-list">
+        <div class="slider-inner"></div>
+    </div>
+    `;
+
+    for (const movie of movieList) {
+        const movieCard = createMovieCard(movie); // called from movie_card.js
+
+        movieListElem.querySelector(".slider-inner").appendChild(movieCard);
+    }
+
+    pageContent.appendChild(movieListElem);
+}
