@@ -27,9 +27,11 @@ export function sidebar() {
     <div class="sidebar-list">
         <p class="title">Language</p>
 
-        <a href="./movie-list.html" menu-close class="sidebar-link">English</a>
+        <a href="./movie-list.html" menu-close class="sidebar-link" onclick='getMovieList("with_original_language=en",
+        "English")'>English</a>
 
-        <a href="./movie-list.html" menu-close class="sidebar-link">French</a>
+        <a href="./movie-list.html" menu-close class="sidebar-link" onclick='getMovieList("with_original_language=fr",
+        "French")'>French</a>
 
     </div>
 
@@ -46,7 +48,7 @@ export function sidebar() {
             link.classList.add("sidebar-link");
             link.setAttribute("href", "./movie-list.html");
             link.setAttribute("menu-close", "");
-            // link.setAttribute("onclick", `getMovieList("with_genres=${genreId}", "${genreName}")`)
+            link.setAttribute("onclick", `getMovieList("with_genres=${genreId}", "${genreName}")`);
             link.textContent = genreName;
 
             sidebarInner.querySelectorAll(".sidebar-list")[0].appendChild(link);

@@ -138,11 +138,9 @@ api_key=${api_key}&append_to_response=casts,videos,images,releases`, function(mo
         videoCard.classList.add("video-card");
 
         videoCard.innerHTML = `
-        <iframe width="500" height="294" src="https://www.youtube.com/embed/${key}?theme=dark&color=white&rel=0" 
-        frameborder="0" allowfullscreen="1" title="${name}" class="img-cover"></iframe>
+        <iframe width="500" height="294" src="https://www.youtube.com/embed/${key}?&theme=dark&color=white&rel=0" 
+        frameborder="0" allowfullscreen="1" title="${name}" class="img-cover" loading="lazy"></iframe>
     `;
-    
-
         movieDetail.querySelector(".slider-inner").appendChild(videoCard);
     }
 
