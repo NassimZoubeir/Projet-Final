@@ -17,7 +17,7 @@ let currentPage = 1;
 let totalPages= 0;
 
 fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}
-&sort_by=popularity.desc&include_adult=false&page=${currentPage}&${urlParam}`, function ({results: movieList, total_pages }) {
+&sort_by=popularity.desc&language=fr&include_adult=false&page=${currentPage}&${urlParam}`, function ({results: movieList, total_pages }) {
  
     totalPages = total_pages;
 
@@ -29,12 +29,12 @@ fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_k
 
     movieListElem.innerHTML = `
     <div class="title-wrapper">
-    <h1 class="heading">All ${genreName} Movies</h1>
+    <h1 class="heading">${genreName}</h1>
     </div>
 
     <div class="grid-list"></div>
 
-    <button class="btn load-more" load-more>Load More</button>
+    <button class="btn load-more" load-more>Voir plus</button>
     `;
 
     /**
