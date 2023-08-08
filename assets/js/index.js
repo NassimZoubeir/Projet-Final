@@ -19,15 +19,15 @@ sidebar();
 const homePageSections = [
 
     {
-        title: "Upcoming Movies",
+        title: "Films à Venir",
         path: "/movie/upcoming"
     },
     {
-        title: "Weekly Trending Movies",
+        title: "Films Tendance de la Semaine",
         path: "/trending/movie/week"
     },
     {
-        title: "Top Rated Movies",
+        title: "Films les Mieux Notés",
         path: "/movie/top_rated"
     }
 ]
@@ -49,13 +49,13 @@ const genreList = {
 
 };
 
-fetchDataFromServer(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}`, function ({ genres }) {
+fetchDataFromServer(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=fr`, function ({ genres }) {
     for (const { id, name } of genres ) {
         genreList[id] = name;
     }
 
     
-fetchDataFromServer(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&page=1`, heroBanner);
+fetchDataFromServer(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=fr&page=1`, heroBanner);
 });
 
 
@@ -112,7 +112,7 @@ for (const [index, movie] of movieList.entries()) {
         <a href="./detail.html" class="btn" onclick="getMovieDetail(${id})">
             <img src="./assets/images/play_circle.png" width="24" height="24" aria-hidden="true" alt="play circle">
 
-            <span class="span">Watch Now</span>
+            <span class="span">Regarder</span>
         </a>
     </div>
     `;
@@ -141,7 +141,7 @@ addHeroSlide();
  * fetch data for home page sections (top rated, upcoming, trending)
  */
 for (const { title, path } of homePageSections) {
-    fetchDataFromServer(`https://api.themoviedb.org/3${path}?api_key=${api_key}&page=1`, createMovieList, title);
+    fetchDataFromServer(`https://api.themoviedb.org/3${path}?api_key=${api_key}&language=fr&page=1`, createMovieList, title);
 }
 
 }

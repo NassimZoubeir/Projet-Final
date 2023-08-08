@@ -7,7 +7,7 @@ export function sidebar() {
     
     const genreList = {};
 
-    fetchDataFromServer(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}`, function ({ genres }) {
+    fetchDataFromServer(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=fr`, function ({ genres }) {
         for (const { id, name } of genres ) {
             genreList[id] = name;
         }
@@ -21,17 +21,6 @@ export function sidebar() {
     <div class="sidebar-list">
 
         <p class="title">Genre</p>
-
-    </div>
-
-    <div class="sidebar-list">
-        <p class="title">Language</p>
-
-        <a href="./movie-list.html" menu-close class="sidebar-link" onclick='getMovieList("with_original_language=en",
-        "English")'>English</a>
-
-        <a href="./movie-list.html" menu-close class="sidebar-link" onclick='getMovieList("with_original_language=fr",
-        "French")'>French</a>
 
     </div>
 

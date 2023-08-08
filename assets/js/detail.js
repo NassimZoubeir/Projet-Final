@@ -46,7 +46,7 @@ const filterVideos = function (videoList) {
 }
 
 fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?
-api_key=${api_key}&append_to_response=casts,videos,images,releases`, function(movie) {
+api_key=${api_key}&append_to_response=casts,videos,images,releases&language=fr`, function(movie) {
 
     const {
         backdrop_path,
@@ -107,13 +107,13 @@ api_key=${api_key}&append_to_response=casts,videos,images,releases`, function(mo
             <ul class="detail-list">
 
                 <div class="list-item">
-                    <p class="list-name">Starring</p>
+                    <p class="list-name">Avec</p>
 
                     <p>${getCasts(cast)}</p>
                 </div>
 
                 <div class="list-item">
-                    <p class="list-name">Directed By</p>
+                    <p class="list-name">Réalisé par</p>
 
                     <p>${getDirectors(crew)}</p>
                 </div>
@@ -122,7 +122,7 @@ api_key=${api_key}&append_to_response=casts,videos,images,releases`, function(mo
         </div>
 
         <div class="title-wrapper">
-            <h3 class="title-large">Trailers and Clips</h3>
+            <h3 class="title-large">Bandes-annonces et Extraits</h3>
         </div>
 
         <div class="slider-list">
@@ -145,7 +145,7 @@ api_key=${api_key}&append_to_response=casts,videos,images,releases`, function(mo
 
     pageContent.appendChild(movieDetail);
 
-    fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${api_key}&page=1`
+    fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${api_key}&language=fr&page=1`
     , addSuggestedMovies);
 });
 
@@ -153,11 +153,11 @@ const addSuggestedMovies = function({ results: movieList }, title) {
 
     const movieListElem = document.createElement("section");
     movieListElem.classList.add("movie-list");
-    movieListElem.ariaLabel = "You May Also Like";
+    movieListElem.ariaLabel = "Vous pourriez également aimer";
 
     movieListElem.innerHTML = `
     <div class="title-wrapper">
-    <h3 class="title-large">You May Also Like</h3>
+    <h3 class="title-large">Vous pourriez également aimer</h3>
     </div>
 
     <div class="slider-list">
