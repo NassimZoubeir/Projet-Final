@@ -750,8 +750,6 @@ body {
 
   .header { padding: 28px 56px; }
 
-  .logo img { width: 160px; }
-
   .menu-btn, .overlay { display: none; }
 
   main {

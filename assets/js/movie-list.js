@@ -61,7 +61,7 @@ fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_k
         currentPage++;
         this.classList.add("loading"); // this == load-more-btn
 
-        fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&sort_by=popularity.desc&include_adult=false&page=${currentPage}&${urlParam}`, ({ results: movieList}) => {
+        fetchDataFromServer(`https://api.themoviedb.org/3/discover/movie?api_key=${api_key}&language=fr&sort_by=popularity.desc&include_adult=false&page=${currentPage}&${urlParam}`, ({ results: movieList}) => {
             this.classList.remove("loading"); // this == load-more-btn
 
             for (const movie of movieList) {
