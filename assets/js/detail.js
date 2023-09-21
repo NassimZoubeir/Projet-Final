@@ -45,8 +45,7 @@ const filterVideos = function (videoList) {
     return videoList.filter(({ type, site }) => (type == "Trailer" || type == "Teaser") && site == "Youtube");
 }
 
-fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?
-api_key=${api_key}&append_to_response=casts,videos,images,releases&language=fr`, function(movie) {
+fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api_key}&append_to_response=casts,videos,images,releases&language=fr`, function(movie) {
 
     const {
         backdrop_path,
@@ -80,7 +79,7 @@ api_key=${api_key}&append_to_response=casts,videos,images,releases&language=fr`,
 
         <div class="detail-content">
             <h1 class="heading">${title}</h1>
-
+            
             <div class="meta-list">
 
                 <div class="meta-item">
@@ -132,21 +131,20 @@ api_key=${api_key}&append_to_response=casts,videos,images,releases&language=fr`,
     </div>
     `;
     for (const { key, name } of filterVideos(videos)) {
-
+        
         const videoCard = document.createElement("div");
         videoCard.classList.add("video-card");
 
         videoCard.innerHTML = `
-        <iframe width="500" height="294" src="https://www.youtube.com/embed/${key}?&theme=dark&color=white&rel=0" 
-        frameborder="0" allowfullscreen="1" title="${name}" class="img-cover" loading="lazy"></iframe>
+        <iframe width="500" height="294" src="https://www.youtube.com/embed/${key}?&theme=dark&color=white&rel=0"
+         frameborder="0" allowfullscreen="1" title="${name}" class="img-cover" loading="lazy"></iframe>
     `;
         movieDetail.querySelector(".slider-inner").appendChild(videoCard);
     }
 
     pageContent.appendChild(movieDetail);
 
-    fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${api_key}&language=fr&page=1`
-    , addSuggestedMovies);
+    fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${api_key}&language=fr&page=1`, addSuggestedMovies);
 });
 
 const addSuggestedMovies = function({ results: movieList }, title) {

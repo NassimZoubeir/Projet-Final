@@ -626,6 +626,35 @@ body {
   color: var(--text-color);
   min-width: 112px;
 }
+/* Style du bouton "Ajouter aux favoris" */
+.add-to-favorites {
+  background-color: var(--background); /* Couleur de fond */
+  color: var(--white); /* Couleur du texte */
+  font-size: var(--fs-button); /* Taille de police */
+  font-weight: var(--weight-bold); /* Poids de la police */
+  max-width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-block: 12px;
+  padding-inline: 20px 24px;
+  border-radius: var(--radius-8); /* Bordures arrondies */
+  transition: var(--transition-short);
+  margin-left: auto;
+}
+
+/* Style au survol du bouton */
+.add-to-favorites:hover {
+  background-color: var(--banner-background); /* Couleur de fond au survol */
+  box-shadow: var(--shadow-2); /* Ombre au survol */
+}
+
+/* Style au focus (accessible via le clavier) */
+.add-to-favorites:focus {
+  outline: none; /* Supprimer la bordure de focus par défaut */
+  box-shadow: 0 0 0 2px var(--on-surface); /* Ajouter une bordure de focus personnalisée */
+}
+
 
 /*-----------------------------------*\
   #MOVIE LIST PAGE
@@ -671,6 +700,13 @@ body {
   #MEDIA QUERIES
 \*-----------------------------------*/
 
+@media (max-width: 575px) {
+
+  .add-to-favorites {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+}
 @media (min-width: 575px) {
   
    /* Home page */
@@ -741,6 +777,10 @@ body {
 
   .movie-detail .slider-inner::before { display: none; }
 
+  .add-to-favorites {
+    font-size: 15px;
+  }
+
 }
 
 
@@ -782,6 +822,5 @@ body {
 
   /* MOVIE DETAIL PAGE */
   .backdrop-image { border-top-left-radius: var(--radius-36); }
-
 
 }
