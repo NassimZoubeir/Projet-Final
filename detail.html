@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nassflix is a popular movie app made by Zoubeir Nassim">
+    <meta name="description" content="Nassflix est une application de films populaire créée par Zoubeir Nassim">
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,42 +13,57 @@
     <script src="./assets/js/detail.js" type="module"></script>
 </head>
 <body>
-    
-<header class="header">
 
-    <a href="./index.html" class="logo">
-        <h1>Nassflix</h1>
-    </a>
-    <div class="search-box" search-box>
-        <div class="search-wrapper" search-wrapper>
-            <input type="text" name="search" aria-label = "search movies" placeholder="Rechercher un film..." 
-            alt ="search" class="search-field" autocomplete="off" search-field>
-           <img src="./assets/images/search.png" width="24" height="24" alt="search" class="leading-icon">
+    <header class="header">
+
+        <!-- Logo de Nassflix avec un lien vers la page d'accueil -->
+        <a href="./index.html" class="logo">
+            <h1>Nassflix</h1>
+        </a>
+
+        <!-- Boîte de recherche -->
+        <div class="search-box" search-box>
+            <div class="search-wrapper" search-wrapper>
+                <!-- Champ de recherche -->
+                <input type="text" name="search" aria-label="search movies" placeholder="Rechercher un film..."
+                    alt="search" class="search-field" autocomplete="off" search-field>
+                <!-- Icône de recherche -->
+                <img src="./assets/images/search.png" width="24" height="24" alt="search" class="leading-icon">
+            </div>
+
+            <!-- Bouton pour fermer la boîte de recherche -->
+            <button class="search-btn" search-toggler>
+                <img src="./assets/images/close.png" width="24" height="24" alt="close search box">
+            </button>
         </div>
 
-        <button class="search-btn" search-toggler>
-            <img src="./assets/images/close.png" width="24" height="24" alt="close search box">
+        <!-- Bouton pour ouvrir la boîte de recherche -->
+        <button class="search-btn" search-toggler menu-close>
+            <img src="./assets/images/search.png" width="24" height="24" alt="open search box">
         </button>
-    </div>
 
-    <button class="search-btn" search-toggler menu-close>
-        <img src="./assets/images/search.png" width="24" height="24" alt="open search box">
-    </button>
+        <!-- Bouton du menu -->
+        <button class="menu-btn" menu-btn menu-toggler>
+            <!-- Icône du menu ouvert -->
+            <img src="./assets/images/menu.png" width="24" height="24" alt="open menu" class="menu">
+            <!-- Icône du menu fermé -->
+            <img src="./assets/images/menu-close.png" width="24" height="24" alt="close menu" class="close">
+        </button>
+    </header>
 
-    <button class="menu-btn" menu-btn menu-toggler>
-        <img src="./assets/images/menu.png" width="24" height="24" alt="open menu" class="menu">
-        <img src="./assets/images/menu-close.png" width="24" height="24" alt="close menu" class="close">
-    </button>
-</header>
+    <main>
 
-<main>
-<nav class="sidebar" sidebar></nav>
-<div class="overlay" overlay menu-toggler></div>
+        <!-- Barre de navigation latérale -->
+        <nav class="sidebar" sidebar></nav>
+        <!-- Overlay pour fermer le menu mobile -->
+        <div class="overlay" overlay menu-toggler></div>
 
-<article class="container" page-content>
-    <button class="add-to-favorites">Ajouter aux favoris</button>
-</article>
-</main>
+        <!-- Contenu principal de la page -->
+        <article class="container" page-content>
+            <!-- Bouton pour ajouter aux favoris -->
+            <button class="add-to-favorites">Ajouter aux favoris</button>
+        </article>
+    </main>
 
 </body>
 </html>
