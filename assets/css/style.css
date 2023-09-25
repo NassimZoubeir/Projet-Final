@@ -627,7 +627,7 @@ body {
   min-width: 112px;
 }
 /* Style du bouton "Ajouter aux favoris" */
-.add-to-favorites {
+.button {
   background-color: var(--background); /* Couleur de fond */
   color: var(--white); /* Couleur du texte */
   font-size: var(--fs-button); /* Taille de police */
@@ -644,13 +644,13 @@ body {
 }
 
 /* Style au survol du bouton */
-.add-to-favorites:hover {
+.button:hover {
   background-color: var(--banner-background); /* Couleur de fond au survol */
   box-shadow: var(--shadow-2); /* Ombre au survol */
 }
 
 /* Style au focus (accessible via le clavier) */
-.add-to-favorites:focus {
+.button:focus {
   outline: none; /* Supprimer la bordure de focus par défaut */
   box-shadow: 0 0 0 2px var(--on-surface); /* Ajouter une bordure de focus personnalisée */
 }
@@ -702,7 +702,7 @@ body {
 
 @media (max-width: 575px) {
 
-  .add-to-favorites {
+  .button {
     font-size: 10px;
     margin-bottom: 10px;
   }
@@ -777,7 +777,7 @@ body {
 
   .movie-detail .slider-inner::before { display: none; }
 
-  .add-to-favorites {
+  .button {
     font-size: 15px;
   }
 

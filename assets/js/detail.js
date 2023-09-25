@@ -143,7 +143,7 @@ fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api
             <iframe width="500" height="294" src="https://www.youtube.com/embed/${key}?&theme=dark&color=white&rel=0" frameborder="0" allowfullscreen="1" title="${name}" class="img-cover" loading="lazy"></iframe>
         `;
         movieDetail.querySelector(".slider-inner").appendChild(videoCard);
-    }
+    } console.log(videos)
 
     // Ajout de l'élément à la page
     pageContent.appendChild(movieDetail);
