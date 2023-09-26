@@ -42,7 +42,7 @@ const getDirectors = function (crewList) {
 
 // Fonction pour filtrer les vidéos (trailers et teasers)
 const filterVideos = function (videoList) {
-    return videoList.filter(({ type, site }) => (type === "Trailer" || type === "Teaser") && site === "Youtube");
+    return videoList.filter(({ type, site }) => (type === "Trailer" || type === "Teaser") && site === "YouTube");
 };
 
 // Récupération des données du film depuis l'API
@@ -138,12 +138,11 @@ fetchDataFromServer(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${api
 
         const videoCard = document.createElement("div");
         videoCard.classList.add("video-card");
-        
         videoCard.innerHTML = `
             <iframe width="500" height="294" src="https://www.youtube.com/embed/${key}?&theme=dark&color=white&rel=0" frameborder="0" allowfullscreen="1" title="${name}" class="img-cover" loading="lazy"></iframe>
         `;
         movieDetail.querySelector(".slider-inner").appendChild(videoCard);
-    } console.log(videos)
+    }
 
     // Ajout de l'élément à la page
     pageContent.appendChild(movieDetail);
