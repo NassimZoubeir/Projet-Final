@@ -12,7 +12,7 @@ const pageContent = document.querySelector("[page-content]");
 sidebar();
 
 /**
- * Sections de la page d'accueil (Meilleurs films, À venir, Films tendance)
+ * Sections de la page d'accueil (films à venir, films tendance de la semaine, Films les mieux notés)
  */
 
 const homePageSections = [
