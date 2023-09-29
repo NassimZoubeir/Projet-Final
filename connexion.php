@@ -17,26 +17,36 @@
     <?php require_once 'include/menu.php' ?>
 
     <section class="p-5">
-        <h1>Connexion</h1>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <h1 class="mb-4">Connexion</h1>
 
-        <!-- Message de Session -->
-        <?php if (isset($_SESSION['flash'])) : ?>
-            <?php foreach ($_SESSION['flash'] as $type => $message) : ?>
-                <div class="ms-1 me-3 alert alert-<?= $type; ?>">
-                    <?= $message; ?>
+                    <!-- Message de Session -->
+                    <?php if (isset($_SESSION['flash'])) : ?>
+                        <?php foreach ($_SESSION['flash'] as $type => $message) : ?>
+                            <div class="alert alert-<?= $type; ?>" role="alert">
+                                <?= $message; ?>
+                            </div>
+                        <?php endforeach; ?>
+                        <?php unset($_SESSION['flash']); ?>
+                    <?php endif; ?>
+                    <!-- Fin de message de Session -->
+
+                    <form method="post" action="action/login.php">
+                        <div class="mb-3">
+                            <label for="mail" class="form-label">Email :</label>
+                            <input type="email" class="form-control" id="mail" name="mail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Mot de passe :</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Se connecter</button>
+                    </form>
                 </div>
-            <?php endforeach; ?>
-            <?php unset($_SESSION['flash']); ?>
-        <?php endif; ?>
-        <!-- Fin de message de Session -->
-
-        <form method="post" action="action/login.php">
-            <label for="mail">Email:</label>
-            <input type="email" name="mail" required><br><br>
-            <label for="password">Mot de passe:</label>
-            <input type="password" name="password" required><br><br>
-            <input type="submit" name="submit" value="Se connecter">
-        </form>
+            </div>
+        </div>
     </section>
         
     </div>
