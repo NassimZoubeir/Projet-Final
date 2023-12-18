@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : dim. 24 sep. 2023 à 13:25
+-- Généré le : lun. 18 déc. 2023 à 15:18
 -- Version du serveur : 5.7.24
 -- Version de PHP : 8.0.1
 
@@ -18,20 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `film`
+-- Base de données : `film2`
 --
-
--- --------------------------------------------------------
-
---
--- Structure de la table `favoris`
---
-
-CREATE TABLE `favoris` (
-  `id_Favori` int(11) NOT NULL,
-  `id_Utilisateur` int(11) DEFAULT NULL,
-  `id_Film` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -61,13 +49,6 @@ INSERT INTO `utilisateur` (`id_Utilisateur`, `nom`, `email`, `mp`, `isActive`, `
 --
 
 --
--- Index pour la table `favoris`
---
-ALTER TABLE `favoris`
-  ADD PRIMARY KEY (`id_Favori`),
-  ADD KEY `ID_Utilisateur` (`id_Utilisateur`);
-
---
 -- Index pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
@@ -78,26 +59,10 @@ ALTER TABLE `utilisateur`
 --
 
 --
--- AUTO_INCREMENT pour la table `favoris`
---
-ALTER TABLE `favoris`
-  MODIFY `id_Favori` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
   MODIFY `id_Utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `favoris`
---
-ALTER TABLE `favoris`
-  ADD CONSTRAINT `favoris_ibfk_1` FOREIGN KEY (`id_Utilisateur`) REFERENCES `utilisateur` (`id_Utilisateur`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
