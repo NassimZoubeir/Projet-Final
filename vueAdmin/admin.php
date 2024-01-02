@@ -40,18 +40,40 @@ if (!isset($_SESSION['auth']) || intval($_SESSION['auth']->role) !== 3) {
         while ($user = $recupUsers->fetch()) {
         ?>
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <p><?=  $user['nom'];?></p>
-            <button onclick="confirmDelete(<?= $user['id_Utilisateur'] ?>)" class="btn btn-danger">Supprimer le membre</button>
-            <?php if ($user['isActive'] == 1): ?>
-                <a href="desactiver.php?id=<?= $user['id_Utilisateur'] ?>" class="btn btn-warning text-white">Désactiver le membre</a>
-            <?php else: ?>
-                <a href="activer.php?id=<?= $user['id_Utilisateur'] ?>" class="btn btn-success text-white">Activer le membre</a>
+            <div id="updateForm<?= $user['id_Utilisateur'] ?>" style="display: none;">
+                <form action="modifier.php" method="post">
+                    <input type="hidden" name="userId" value="<?= $user['id_Utilisateur'] ?>">
+                    <input type="text" name="newName" value="<?= $user['nom'] ?>" placeholder="Nouveau nom">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                </form>
+            </div>
+    <p id="userName<?= $user['id_Utilisateur'] ?>"><?=  $user['nom'];?></p>
+    <?php if ($user['isActive'] == 1): ?>
+        <a href="desactiver.php?id=<?= $user['id_Utilisateur'] ?>" class="btn btn-warning text-white">Désactiver le membre</a>
+        <?php else: ?>
+            <a href="activer.php?id=<?= $user['id_Utilisateur'] ?>" class="btn btn-success text-white">Activer le membre</a>
             <?php endif; ?>
+                <button class="btn btn-primary" onclick="toggleUpdateForm(<?= $user['id_Utilisateur'] ?>)">Modifier le membre</button>
+                <button onclick="confirmDelete(<?= $user['id_Utilisateur'] ?>)" class="btn btn-danger">Supprimer le membre</button>
         </div>
         <?php
         }
         ?>
     </div>
+    <script>
+    function toggleUpdateForm(userId) {
+        var formDiv = document.getElementById('updateForm' + userId);
+        var userNameParagraph = document.getElementById('userName' + userId);
+
+        if (formDiv.style.display === 'none') {
+            formDiv.style.display = 'block';
+            userNameParagraph.style.display = 'none';
+        } else {
+            formDiv.style.display = 'none';
+            userNameParagraph.style.display = 'block';
+        }
+    }
+</script>
 </body>
 
 </html>
