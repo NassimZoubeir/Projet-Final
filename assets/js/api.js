@@ -12,7 +12,6 @@ const imageBaseUrl = 'https://image.tmdb.org/t/p/';
  * @param {function} callback - La fonction de rappel qui traitera les données récupérées.
  * @param {any} optionalParam - Paramètre optionnel à transmettre à la fonction de rappel.
  */
-
 const fetchDataFromServer = function(url, callback, optionalParam) {
     // Effectue une requête fetch vers l'URL spécifiée
     fetch(url)
@@ -21,4 +20,4 @@ const fetchDataFromServer = function(url, callback, optionalParam) {
 }
 
 // Exporte les variables et la fonction pour les rendre accessibles depuis d'autres modules
-export { imageBaseUrl, api_key, fetchDataFromServer }
+module.exports = { imageBaseUrl, api_key, fetchDataFromServer };

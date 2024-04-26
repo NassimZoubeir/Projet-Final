@@ -43,3 +43,16 @@ export function createMovieCard(movie) {
 
     return card;
 }
+// Récupérer tous les boutons "Ajouter aux favoris"
+const addToFavoritesButtons = document.querySelectorAll("[data-movie-id]");
+
+// Ajouter un écouteur d'événement à chaque bouton
+addToFavoritesButtons.forEach(button => {
+    button.addEventListener("click", function() {
+        // Récupérer l'ID du film à partir de l'attribut data
+        const movieId = button.dataset.movieId;
+
+        // Stocker l'ID du film dans la session des favoris de l'utilisateur (vous pouvez utiliser une autre méthode ici, comme une requête AJAX)
+        sessionStorage.setItem('favorite_movie_id', movieId);
+    });
+});

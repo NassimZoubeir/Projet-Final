@@ -176,3 +176,18 @@ const addSuggestedMovies = function ({ results: movieList }, title) {
 
 // Appel de la fonction pour gérer la recherche
 search();
+
+// Récupérer le bouton "Ajouter aux favoris"
+const addToFavoritesButton = document.getElementById("addToFavoritesButton");
+
+// Ajouter un écouteur d'événement au clic sur le bouton "Ajouter aux favoris"
+addToFavoritesButton.addEventListener("click", function() {
+    // Récupérer l'ID du film depuis le bouton lui-même (via l'attribut data)
+    const movieId = addToFavoritesButton.getAttribute("data-movie-id");
+    
+    // Mettre à jour la valeur de l'input caché avec l'ID du film
+    document.getElementById("movieIdInput").value = movieId;
+    
+    // Soumettre le formulaire
+    document.getElementById("addToFavoritesForm").submit();
+});

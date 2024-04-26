@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nassflix est une application de films populaire créée par Zoubeir Nassim">
+    <meta name="description" content="Nassflix est une application de films populaires crée par Zoubeir Nassim">
     <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,8 +65,10 @@
         <!-- Contenu principal de la page -->
         <article class="container" page-content>
             <!-- Formulaire pour ajouter aux favoris -->
-            <form action="ajouter_aux_favoris.php" method="POST">
-                <button type="submit" class="button" name="addToFavorites">Ajouter aux favoris</button>
+            <form id="addToFavoritesForm" action="ajouter_aux_favoris.php" method="POST">
+                <!-- Champ caché pour stocker l'ID du film -->
+                <input type="hidden" id="movieIdInput" name="movieId">
+                <button type="submit" class="button" id="addToFavoritesButton" name="addToFavorites">Ajouter aux favoris</button>
             </form>
         </article>
     </main>
