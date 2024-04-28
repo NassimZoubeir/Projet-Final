@@ -27,7 +27,7 @@ logged_only();
 
   <!-- Section pour afficher les films favoris -->
     <div class="container mt-5">
-        <h2 class="text-center mb-4">Vos films favoris :</h2>
+        <h2 class="text-center mb-4">Tes films favoris :</h2>
         <?php
             // Vérifiez si l'ID du film favori est présent dans la session
             if (isset($_SESSION['favorite_movie_id'])) {
