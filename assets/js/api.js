@@ -19,5 +19,6 @@ const fetchDataFromServer = function(url, callback, optionalParam) {
         .then(data => callback(data, optionalParam)); // Appelle la fonction de rappel avec les données récupérées
 }
 
-// Exporte les variables et la fonction pour les rendre accessibles depuis d'autres modules
-module.exports = { imageBaseUrl, api_key, fetchDataFromServer };
+// Exporter la clé d'API, l'URL de base et la fonction
+export { imageBaseUrl, api_key, fetchDataFromServer };
+
